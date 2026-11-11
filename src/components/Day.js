@@ -1,0 +1,7 @@
+const Day = ({ dayNum }) => (
+    <>
+        <h2 className="mt-8 text-3xl text-blue-400 font-Audiowide drop-shadow-[0_0_15px_rgba(59,130,246,0.9)]">Day {dayNum}</h2>
+    </>
+);
+
+export default Day;
