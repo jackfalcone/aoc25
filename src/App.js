@@ -9,6 +9,7 @@ function App() {
         <h1 className="mb-4 text-4xl text-green-500 text-center font-Audiowide drop-shadow-[0_0_15px_rgba(34,197,94,0.9)]">Advent of Code 2025</h1>
         <Day dayNum="01" />
         <Day01 />
+        <Day dayNum="02" />
         <Day02 />
       </div>
     </div>
