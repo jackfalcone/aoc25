@@ -5,7 +5,9 @@ import Solution from './Solution';
 const Day02 = () => {
     const [linesArr, setLinesArr] = useState([]);
     const [dupliArr, setDupliArr] = useState([]);
+    const [dupliArrB, setDupliArrB] = useState([]);
     const [total, setTotal] = useState(0);
+    const [totalB, setTotalB] = useState(0);
 
     useEffect(() => {
         fetch('/resources/day02.txt')
@@ -23,21 +25,23 @@ const Day02 = () => {
     }, [])
 
     const checkDupli = id => /^(\d+)\1$/.test(String(id));
+    const checkDupliB = id => /^(\d+)\1+$/.test(String(id));
 
     useEffect(() => {
         if (linesArr.length > 0) {
-            const dupli= []
+            const dupli = []
+            const dupliB = []
 
             linesArr.forEach(line => {
                 const [start, end] = line.split('-').map(Number);
                 
                 for (let i = start; i <= end; i++) {
-                    if (checkDupli(i)) {
-                        dupli.push(i);
-                    }
+                    if (checkDupli(i)) dupli.push(i);
+                    if (checkDupliB(i)) dupliB.push(i);
                 } 
 
                 setDupliArr(dupli);
+                setDupliArrB(dupliB)
             })
         }
     }, [linesArr])
@@ -45,6 +49,7 @@ const Day02 = () => {
     useEffect(() => {
         if (dupliArr.length > 0) {
             setTotal(dupliArr.reduce((a, b) => a + b, 0));
+            setTotalB(dupliArrB.reduce((a, b) => a + b, 0));
         }
     }, [dupliArr])
 
@@ -53,7 +58,7 @@ const Day02 = () => {
             <Part partLetter="A" />
             <Solution solutionText="Total" solutionValue={total} />
             <Part partLetter="B" />
-            <Solution solutionText="Times every click 0" solutionValue={'0'} />
+            <Solution solutionText="Total" solutionValue={totalB} />
         </div>
     )
 }
