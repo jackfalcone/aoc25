@@ -1,5 +1,6 @@
 import Day from './components/Day';
 import Day01 from './components/Day01';
+import Day02 from './components/Day02';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
         <h1 className="mb-4 text-4xl text-green-500 text-center font-Audiowide drop-shadow-[0_0_15px_rgba(34,197,94,0.9)]">Advent of Code 2025</h1>
         <Day dayNum="01" />
         <Day01 />
+        <Day02 />
       </div>
     </div>
   );
