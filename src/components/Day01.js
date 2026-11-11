@@ -4,6 +4,7 @@ import Solution from './Solution';
 
 const Day01 = () => {
     const [clickZero, setClickZero] = useState(0); 
+    const [everyClickZero, setEveryClickZero] = useState(0);
 
     useEffect(() => {
         fetch('/resources/day01.txt')
@@ -16,6 +17,7 @@ const Day01 = () => {
                 
                 let currentPos = 50;
                 let zeroCount = 0;
+                let everyZeroCount = 0;
 
                 lines.forEach(instruction => {
                     const direction = instruction[0];
@@ -27,6 +29,10 @@ const Day01 = () => {
                         } else if (direction === 'L') {
                             currentPos = currentPos === 0 ? 99 : currentPos - 1;
                         }
+
+                        if (currentPos === 0) {
+                            everyZeroCount++;
+                        }
                     }
                     
                     if (currentPos === 0) {
@@ -35,6 +41,7 @@ const Day01 = () => {
                 })
                 
                 setClickZero(zeroCount);
+                setEveryClickZero(everyZeroCount);
             })
             .catch(error => {
                 console.error(error);
@@ -45,6 +52,8 @@ const Day01 = () => {
         <div>
             <Part partLetter="A" />
             <Solution solutionText="Times click 0" solutionValue={clickZero} />
+            <Part partLetter="B" />
+            <Solution solutionText="Times every click 0" solutionValue={everyClickZero} />
         </div>
     )
 }
