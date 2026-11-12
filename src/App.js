@@ -1,6 +1,7 @@
 import Day from './components/Day';
 import Day01 from './components/Day01';
 import Day02 from './components/Day02';
+import Day03 from './components/Day03';
 
 function App() {
   return (
@@ -11,6 +12,8 @@ function App() {
         <Day01 />
         <Day dayNum="02" />
         <Day02 />
+        <Day dayNum="03" />
+        <Day03 />
       </div>
     </div>
   );
